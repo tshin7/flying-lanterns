@@ -1,23 +1,58 @@
-const express = require('express');
-const path = require('path');
+// Server configuration
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const helmet = require('helmet'); // sets some http header for security
+const mongoose = require('mongoose'); // MongoDB object modeling tool designed to work in an asynchronous environment
+const flash = require('connect-flash');
+const morgan = require('morgan'); // HTTP request logger middleware for node.js
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+const CORS_WHITELIST = require('./constants/frontend');
+const configDB = require('./config/database');
 
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
+const corsOptions = {
+  origin: (origin, callback) =>
+    (CORS_WHITELIST.indexOf(origin) !== -1)
+      ? callback(null, true)
+      : callback(new Error('Not allowed by CORS'))
+};
 
-// Answer API requests.
-app.get('/api', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  res.send('{"message":"Hello from the custom server!"}');
-});
+const configureServer = (app, passport) => {
+  mongoose.connect(configDB.url); // connect to our database
+  // require('./config/passport')(passport); // pass passport for configuration
 
-// All remaining requests return the React app, so it can handle routing.
-app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
-});
+  // A debugging middleware to log request info
+  // app.use((req, res, next) => {
+  //   try {
+  //       console.log(
+  //         '\nURL', req.url, // including any get parameters
+  //         '\n\tPATH:', req.path, // only the path
+  //         '\n\tHOST:', req.hostname,
+  //         '\n\tIP:', req.ip,
+  //         '\n\tPROXIES:', req.ips,
+  //         '\n\tTIME:', new Date().getTime(), '|', Date()
+  //       );
+  //   }
+  //   catch(e) {
+  //     console.log('Error', e);
+  //   }
+  //   next();
+  // });
 
-app.listen(PORT, function () {
-  console.log(`Listening on port ${PORT}`);
-});
+  app.use(morgan('dev')); // log every request to the console
+  app.use(cors());
+  app.use(helmet());
+  app.use(cookieParser()); // read cookies (needed for auth)
+  app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
+  app.use(bodyParser.json());
+
+  // required for passport
+  app.use(session({ secret: 'dfaCKErekwl1231kcvnwo231K' })); // session secret
+  app.use(passport.initialize());
+  app.use(passport.session()); // persistent login sessions
+  app.use(flash()); // use connect-flash for flash messages stored in session
+
+};
+
+module.exports = configureServer;
