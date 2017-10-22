@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -35,10 +35,10 @@ export default class NavBar extends Component {
             <a href="#" className="brand-logo">Flying Lanterns</a>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li className={this.state.homeActive}>
-                <a href="" onClick={this.homeClicked}>Home</a>
+                <Link to='/' onClick={this.homeClicked}>Home</Link>
               </li>
               <li className={this.state.aboutActive}>
-                <a href="" onClick={this.aboutClicked}>About</a>
+                <Link to='/about' onClick={this.aboutClicked}>About</Link>
               </li>
             </ul>
           </div>
