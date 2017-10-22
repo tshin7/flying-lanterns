@@ -18,11 +18,7 @@
   },
   "homepage": "https://github.com/tshin7/flying-lanterns#readme",
   "dependencies": {
-    "axios": "^0.16.2",
     "express": "^4.16.1",
-    "jquery": "^3.2.1",
-    "materialize-css": "^0.100.2",
-    "nodemon": "^1.12.1",
-    "react-router-dom": "^4.2.2"
+    "nodemon": "^1.12.1"
   }
 }
