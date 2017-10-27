@@ -40,6 +40,12 @@ export default class NavBar extends Component {
               <li className={this.state.aboutActive}>
                 <Link to='/about' onClick={this.aboutClicked}>About</Link>
               </li>
+              <li className={this.state.aboutActive}>
+                <Link to='/login' onClick={this.loginClicked}>Login</Link>
+              </li>
+              <li className={this.state.aboutActive}>
+                <Link to='/Signup' onClick={this.signupClicked}>Sign up</Link>
+              </li>
             </ul>
           </div>
         </nav>
