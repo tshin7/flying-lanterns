@@ -7,6 +7,8 @@ export default class NavBar extends Component {
     this.state = {
       homeActive: 'active',
       aboutActive: '',
+      loginActive: '',
+      signupActive: '',
     };
   }
 
@@ -17,6 +19,8 @@ export default class NavBar extends Component {
     this.setState({
       homeActive: 'active',
       aboutActive: '',
+      loginActive: '',
+      signupActive: '',
     });
   }
 
@@ -24,6 +28,26 @@ export default class NavBar extends Component {
     this.setState({
       homeActive: '',
       aboutActive: 'active',
+      loginActive: '',
+      signupActive: '',
+    });
+  }
+
+  loginClicked = () => {
+    this.setState({
+      homeActive: '',
+      aboutActive: '',
+      loginActive: 'active',
+      signupActive: '',
+    });
+  }
+
+  signupClicked = () => {
+    this.setState({
+      homeActive: '',
+      aboutActive: '',
+      loginActive: '',
+      signupActive: 'active',
     });
   }
 
@@ -40,10 +64,10 @@ export default class NavBar extends Component {
               <li className={this.state.aboutActive}>
                 <Link to='/about' onClick={this.aboutClicked}>About</Link>
               </li>
-              <li className={this.state.aboutActive}>
+              <li className={this.state.loginActive}>
                 <Link to='/login' onClick={this.loginClicked}>Login</Link>
               </li>
-              <li className={this.state.aboutActive}>
+              <li className={this.state.signupActive}>
                 <Link to='/Signup' onClick={this.signupClicked}>Sign up</Link>
               </li>
             </ul>
