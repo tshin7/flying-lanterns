@@ -22,12 +22,61 @@ export default class NavBar extends Component {
     const {activeMenuItem} = this.state;
     return (
       <Container>
-        <Menu fixed="top" pointing secondary size="large" style={{ backgroundColor: 'white' }}>
-          <Menu.Item header style={{ fontSize: '1.2em', fontFamily: `${fonts.main}, sans-serif` }}>Flying Lanterns</Menu.Item>
-          <Menu.Item name="home" active={activeMenuItem === 'home'} as={Link} to="/" onClick={this.navbarButtonClicked} position="right" value="about-section" style={{ fontFamily: `${fonts.main}, sans-serif` }}>Home</Menu.Item>
-          <Menu.Item name="about" active={activeMenuItem === 'about'} as={Link} to="/about" onClick={this.navbarButtonClicked} value="products-section" style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}>About</Menu.Item>
-          <Menu.Item name="signup" active={activeMenuItem === 'signup'} as={Link} to="signup" onClick={this.navbarButtonClicked} value="contact-section" style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}>Sign Up</Menu.Item>
-          <Menu.Item name="login" active={activeMenuItem === 'login'} as={Link} to="login" onClick={this.navbarButtonClicked} value="contact-section" style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}>Login</Menu.Item>
+        <Menu
+          fixed="top"
+          pointing
+          secondary
+          size="large"
+          style={{ backgroundColor: 'white' }}
+        >
+          <Menu.Item
+            header
+            style={{ fontSize: '1.2em', fontFamily: `${fonts.main}, sans-serif` }}
+          >
+            Flying Lanterns
+          </Menu.Item>
+          <Menu.Item
+            name="home"
+            active={activeMenuItem === 'home'}
+            as={Link} to="/" onClick={this.navbarButtonClicked}
+            position="right"
+            value="about-section"
+            style={{ fontFamily: `${fonts.main}, sans-serif` }}
+          >
+            Home
+          </Menu.Item>
+          <Menu.Item
+            name="about"
+            active={activeMenuItem === 'about'}
+            as={Link} to="/about"
+            onClick={this.navbarButtonClicked}
+            value="products-section"
+            style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
+          >
+            About
+          </Menu.Item>
+          <Menu.Item
+            name="signup"
+            active={activeMenuItem === 'signup'}
+            as={Link}
+            to="signup"
+            onClick={this.navbarButtonClicked}
+            value="contact-section"
+            style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
+          >
+            Sign Up
+          </Menu.Item>
+          <Menu.Item
+            name="login"
+            active={activeMenuItem === 'login'}
+            as={Link}
+            to="login"
+            onClick={this.navbarButtonClicked}
+            value="contact-section"
+            style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
+          >
+            Login
+          </Menu.Item>
         </Menu>
       </Container>
     );
