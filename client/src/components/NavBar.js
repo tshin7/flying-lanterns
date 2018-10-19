@@ -1,79 +1,60 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Menu,
+  Responsive,
+  Segment,
+  Sidebar,
+  Visibility,
+} from 'semantic-ui-react'
 
 export default class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      homeActive: 'active',
-      aboutActive: '',
-      loginActive: '',
-      signupActive: '',
-    };
-  }
+  state = {
+    activeMenuItem: 'home',
+  };
 
   componentDidMount() {
   }
 
-  homeClicked = () => {
-    this.setState({
-      homeActive: 'active',
-      aboutActive: '',
-      loginActive: '',
-      signupActive: '',
-    });
-  }
-
-  aboutClicked = () => {
-    this.setState({
-      homeActive: '',
-      aboutActive: 'active',
-      loginActive: '',
-      signupActive: '',
-    });
-  }
-
-  loginClicked = () => {
-    this.setState({
-      homeActive: '',
-      aboutActive: '',
-      loginActive: 'active',
-      signupActive: '',
-    });
-  }
-
-  signupClicked = () => {
-    this.setState({
-      homeActive: '',
-      aboutActive: '',
-      loginActive: '',
-      signupActive: 'active',
-    });
-  }
+  navbarButtonClicked = (event, { name }) => {
+    this.setState({ activeMenuItem: name });
+  };
 
   render() {
+    const {activeMenuItem} = this.state;
     return (
-      <div className="navbar-fixed">
-        <nav>
-          <div className="nav-wrapper container">
-            <a href="#" className="brand-logo">Flying Lanterns</a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li className={this.state.homeActive}>
-                <Link to='/' onClick={this.homeClicked}>Home</Link>
-              </li>
-              <li className={this.state.aboutActive}>
-                <Link to='/about' onClick={this.aboutClicked}>About</Link>
-              </li>
-              <li className={this.state.loginActive}>
-                <Link to='/login' onClick={this.loginClicked}>Login</Link>
-              </li>
-              <li className={this.state.signupActive}>
-                <Link to='/Signup' onClick={this.signupClicked}>Sign up</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Container>
+      <Menu fixed="top" pointing secondary size="large" style={{ backgroundColor: 'white' }}>
+           <Menu.Item header style={{ fontSize: '1.2em' }}>Beckon Ware</Menu.Item>
+           <Menu.Item name="home" active={activeMenuItem === 'home'} as="button" onClick={this.navbarButtonClicked} position="right" value="about-section">Home</Menu.Item>
+           <Menu.Item name="about" active={activeMenuItem === 'about'} as="button" onClick={this.navbarButtonClicked} value="products-section">About</Menu.Item>
+           <Menu.Item name="signup" active={activeMenuItem === 'signup'} as="button" onClick={this.navbarButtonClicked} value="contact-section">Sign Up</Menu.Item>
+           <Menu.Item name="login" active={activeMenuItem === 'login'} as="button" onClick={this.navbarButtonClicked} value="contact-section">Login</Menu.Item>
+         </Menu>
+
+        <Menu.Item as='button' active>
+          Home
+        </Menu.Item>
+        <Menu.Item as='button'>About</Menu.Item>
+        <Menu.Item position='right'>
+          <Button as='a'>
+            Log in
+          </Button>
+          <Button as='a' primary style={{ marginLeft: '0.5em' }}>
+            Sign Up
+          </Button>
+        </Menu.Item>
+      </Container>
+
+
     );
   }
 }
