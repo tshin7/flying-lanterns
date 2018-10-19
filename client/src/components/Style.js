@@ -3,6 +3,6 @@ export default {
   mainStyle: {
     marginTop: '4em',
     textAlign: 'center',
-    height: '50em'
+    marginBottom: '50em'
   },
 };
