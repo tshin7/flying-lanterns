@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 
 import NavBar from './components/NavBar';
 import Main from './components/Main';
 import Footer from './components/Footer';
+
+
 
 class App extends Component {
   render() {
