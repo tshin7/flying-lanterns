@@ -30,7 +30,9 @@ export default class NavBar extends Component {
           style={{ backgroundColor: 'white' }}
         >
           <Menu.Item
+            as={Link}
             header
+            to="/"
             style={{ fontSize: '1.2em', fontFamily: `${fonts.main}, sans-serif` }}
           >
             Flying Lanterns
@@ -38,7 +40,9 @@ export default class NavBar extends Component {
           <Menu.Item
             name="home"
             active={activeMenuItem === 'home'}
-            as={Link} to="/" onClick={this.navbarButtonClicked}
+            as={Link}
+            to="/"
+            onClick={this.navbarButtonClicked}
             position="right"
             value="about-section"
             style={{ fontFamily: `${fonts.main}, sans-serif` }}
@@ -48,7 +52,8 @@ export default class NavBar extends Component {
           <Menu.Item
             name="about"
             active={activeMenuItem === 'about'}
-            as={Link} to="/about"
+            as={Link}
+            to="/about"
             onClick={this.navbarButtonClicked}
             value="products-section"
             style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
