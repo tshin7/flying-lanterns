@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const CORS_WHITELIST = require('./constants/frontend');
-const configDB = require('./config/database');
+// const configDB = require('./config/database');
 
 const corsOptions = {
   origin: (origin, callback) =>
@@ -19,7 +19,8 @@ const corsOptions = {
 };
 
 const configureServer = (app, passport) => {
-  mongoose.connect(configDB.url); // connect to our database
+  // mongoose.connect(configDB.url); // connect to our database
+
   // require('./config/passport')(passport); // pass passport for configuration
 
   // A debugging middleware to log request info

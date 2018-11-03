@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "nodemon server/index.js",
     "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tshin7/flying-lanterns.git"
   },
-  "author": "Ted",
+  "author": "Theodore Shin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tshin7/flying-lanterns/issues"

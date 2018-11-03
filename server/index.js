@@ -1,28 +1,41 @@
-// This file is entry point and bootstraps express application
-
 const express = require('express');
 const path = require('path');
-const passport = require('passport');
-// Port
-const SERVER_CONFIGS = require('./constants/server');
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
 
-const configureServer = require('./server');
-const configureRoutes = require('./routes');
+const PORT = process.env.PORT || 5000;
 
-const app = express();
+// Multi-process to utilize all CPU cores.
+if (cluster.isMaster) {
+  console.error(`Node cluster master ${process.pid} is running`);
 
-configureServer(app, passport);
-configureRoutes(app, passport);
+  // Fork workers.
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
 
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+  cluster.on('exit', (worker, code, signal) => {
+    console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
+  });
 
-// All remaining requests return the React app, so it can handle routing.
-app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+} else {
+  const app = express();
 
-app.listen(SERVER_CONFIGS.PORT, error => {
-  if (error) throw error;
-  console.log('Server running on port: ' + SERVER_CONFIGS.PORT);
-});
+  // Priority serve any static files.
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+  // Answer API requests.
+  app.get('/api', function (req, res) {
+    res.set('Content-Type', 'application/json');
+    res.send('{"message":"Hello from the custom server!"}');
+  });
+
+  // All remaining requests return the React app, so it can handle routing.
+  app.get('*', function(request, response) {
+    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+
+  app.listen(PORT, function () {
+    console.error(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
+  });
+}
