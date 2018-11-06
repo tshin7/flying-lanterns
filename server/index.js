@@ -3,6 +3,7 @@ const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
+const SERVER_CONFIGS = require('./constants/server');
 const PORT = process.env.PORT || 5000;
 
 // Multi-process to utilize all CPU cores.
@@ -35,7 +36,8 @@ if (cluster.isMaster) {
     response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
 
-  app.listen(PORT, function () {
-    console.error(`Node cluster worker ${process.pid}: listening on port ${PORT}`);
+  app.listen(SERVER_CONFIGS.PORT, error => {
+    if (error) throw error;
+    console.error(`Node cluster worker ${process.pid}: listening on port ${SERVER_CONFIGS.PORT}`);
   });
 }
