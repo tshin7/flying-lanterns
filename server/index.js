@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+const passport = require('passport');
+const configureServer = require('./server');
+// const configureRoutes = require('./routes');
 
 const SERVER_CONFIGS = require('./constants/server');
 const PORT = process.env.PORT || 5000;
@@ -20,7 +23,11 @@ if (cluster.isMaster) {
   });
 
 } else {
+
   const app = express();
+
+  configureServer(app, passport);
+  // configureRoutes(app, passport);
 
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, '../client/build')));

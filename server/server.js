@@ -20,7 +20,6 @@ const corsOptions = {
 
 const configureServer = (app, passport) => {
   // mongoose.connect(configDB.url); // connect to our database
-
   // require('./config/passport')(passport); // pass passport for configuration
 
   // A debugging middleware to log request info
@@ -41,19 +40,26 @@ const configureServer = (app, passport) => {
   //   next();
   // });
 
-  app.use(morgan('dev')); // log every request to the console
-  app.use(cors());
+  // helmet helps secure express app by settinv various HTTP headers
   app.use(helmet());
+  // log every request to the console
+  app.use(morgan('dev'));
+  app.use(cors());
+
   app.use(cookieParser()); // read cookies (needed for auth)
   app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
   app.use(bodyParser.json());
 
   // required for passport
-  app.use(session({ secret: 'dfaCKErekwl1231kcvnwo231K' })); // session secret
+  app.use(session({
+    secret: 'vcxzvwq1dwf2efwdSFD',
+    resave: true,
+    saveUninitialized: true
+  }));
+
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
   app.use(flash()); // use connect-flash for flash messages stored in session
-
 };
 
 module.exports = configureServer;
