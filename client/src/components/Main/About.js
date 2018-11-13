@@ -5,7 +5,8 @@ export default class About extends Component {
     const {mainStyle} = this.props;
     return (
       <div style={mainStyle}>
-        About
+        Flying Lanterns provides costumes and accessories for cosplaying.
+        At the moment. everything on this site is created by Misha.
       </div>
     );
   }
