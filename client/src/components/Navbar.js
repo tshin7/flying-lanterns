@@ -44,10 +44,22 @@ export default class NavBar extends Component {
             to="/"
             onClick={this.navbarButtonClicked}
             position="right"
-            value="about-section"
+            value="home-section"
             style={{ fontFamily: `${fonts.main}, sans-serif` }}
           >
             Home
+          </Menu.Item>
+          <Menu.Item
+            name="products"
+            active={activeMenuItem === 'products'}
+            as={Link}
+            to="/products"
+            onClick={this.navbarButtonClicked}
+            position="right"
+            value="products-section"
+            style={{ fontFamily: `${fonts.main}, sans-serif` }}
+          >
+            Products
           </Menu.Item>
           <Menu.Item
             name="about"
@@ -55,7 +67,7 @@ export default class NavBar extends Component {
             as={Link}
             to="/about"
             onClick={this.navbarButtonClicked}
-            value="products-section"
+            value="about-section"
             style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
           >
             About
@@ -66,7 +78,7 @@ export default class NavBar extends Component {
             as={Link}
             to="signup"
             onClick={this.navbarButtonClicked}
-            value="contact-section"
+            value="signup-section"
             style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
           >
             Sign Up
@@ -77,7 +89,7 @@ export default class NavBar extends Component {
             as={Link}
             to="login"
             onClick={this.navbarButtonClicked}
-            value="contact-section"
+            value="login-section"
             style={{ fontFamily: `${fonts.main}, sans-serif`, cursor: 'pointer' }}
           >
             Login

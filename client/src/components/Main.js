@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './Main/Home';
+import Products from './Main/Products';
 import About from './Main/About';
 import Login from './Main/Login';
 import Signup from './Main/Signup';
@@ -15,6 +16,11 @@ const Main = () => (
         exact
         path='/'
         render={(props) => <Home {...props} mainStyle={style.mainStyle} />}
+      />
+      <Route
+        exact
+        path='/products'
+        render={(props) => <Products {...props} mainStyle={style.mainStyle} />}
       />
       <Route
         exact
