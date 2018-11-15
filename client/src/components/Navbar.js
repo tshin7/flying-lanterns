@@ -50,16 +50,15 @@ export default class NavBar extends Component {
             Home
           </Menu.Item>
           <Menu.Item
-            name="products"
-            active={activeMenuItem === 'products'}
+            name="shop"
+            active={activeMenuItem === 'shop'}
             as={Link}
-            to="/products"
+            to="/shop"
             onClick={this.navbarButtonClicked}
-            position="right"
             value="products-section"
             style={{ fontFamily: `${fonts.main}, sans-serif` }}
           >
-            Products
+            Shop
           </Menu.Item>
           <Menu.Item
             name="about"

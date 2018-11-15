@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './Main/Home';
-import Products from './Main/Products';
+import Shop from './Main/Shop';
 import About from './Main/About';
 import Login from './Main/Login';
 import Signup from './Main/Signup';
@@ -19,8 +19,8 @@ const Main = () => (
       />
       <Route
         exact
-        path='/products'
-        render={(props) => <Products {...props} mainStyle={style.mainStyle} />}
+        path='/shop'
+        render={(props) => <Shop {...props} mainStyle={style.mainStyle} />}
       />
       <Route
         exact
