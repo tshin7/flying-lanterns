@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Main } from './Main.style.js';
 
 export default class Login extends Component {
   render() {
-    const {mainStyle} = this.props;
     return (
-      <div style={mainStyle}>
+      <Main>
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' color='teal' textAlign='center'>
@@ -31,7 +31,7 @@ export default class Login extends Component {
             </Message>
           </Grid.Column>
         </Grid>
-      </div>
+      </Main>
     );
   }
 }

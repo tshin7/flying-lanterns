@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { Main } from './Main.style.js';
 
 export default class Home extends Component {
   render() {
-    const {mainStyle} = this.props;
     return (
-      <div style={mainStyle}>
+      <Main>
         Home
-      </div>
+      </Main>
     );
   }
 }
