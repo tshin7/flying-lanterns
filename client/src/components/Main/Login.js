@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
 export default class Login extends Component {
