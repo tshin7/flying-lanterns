@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import {
   Container,
   Segment,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
+import {FooterSegment} from './Footer.style.js';
 
 export default class Footer extends Component {
   render() {
     return (
-      <Segment inverted vertical style={{ padding: '5em 0em' }}>
+      <FooterSegment inverted vertical>
         <Container>
             <p>
               Copyright © 2018 Flying Lanterns
             </p>
           </Container>
-      </Segment>
+      </FooterSegment>
     );
   }
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const Main = styled.div`
-  margin-top: 4em;
+export const MainDiv = styled.div`
+  padding-top: 4em;
   text-align: center;
-  margin-bottom: 50em;
+  margin-bottom: 500px;
 `;
