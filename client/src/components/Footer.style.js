@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import {
-  Container,
   Segment,
 } from 'semantic-ui-react';
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container,
-  Segment,
+  Container
 } from 'semantic-ui-react';
 import {FooterSegment} from './Footer.style.js';
 
