@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { MainDiv } from './Main.style.js';
 
 export default class Signup extends Component {
@@ -34,7 +34,7 @@ export default class Signup extends Component {
               </Segment>
             </Form>
             <Message>
-              Already have an account? <a href='#'>Login</a>
+              Already have an account? <a href='/login'>Login</a>
             </Message>
           </Grid.Column>
         </Grid>
