@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Container,
   Menu,
@@ -8,17 +8,21 @@ import {
 // Fonts from Fonts.js file
 import fonts from './Fonts';
 
-export default class NavBar extends Component {
-  state = {
-    activeMenuItem: 'home',
-  };
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    const currentRoute = this.props.location.pathname;
+    // currentRoute has / in front so get rid of it with slice
+    // or set activeMenuItem to home if currentRoute is /
+    const activeMenuItem = currentRoute === '/' ? 'home' : currentRoute.slice(1);
+    this.state = { activeMenuItem: activeMenuItem };
+  }
 
   navbarButtonClicked = (event, { name }) => {
     this.setState({ activeMenuItem: name });
   };
 
   render() {
-    // const {fonts} = this.props.fonts;
     const {activeMenuItem} = this.state;
     return (
       <Container>
@@ -96,5 +100,7 @@ export default class NavBar extends Component {
         </Menu>
       </Container>
     );
-  }
+  };
 }
+
+export default withRouter(Navbar);
