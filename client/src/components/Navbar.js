@@ -5,7 +5,6 @@ import {
   Menu,
 } from 'semantic-ui-react'
 
-// Fonts from Fonts.js file
 import fonts from './Fonts';
 
 class Navbar extends Component {
