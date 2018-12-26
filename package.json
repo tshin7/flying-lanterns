@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build",
-    "lint": "eslint --ignore-path .gitignore ."
+    "lint": "eslint --ignore-path .gitignore . || true"
   },
   "repository": {
     "type": "git",
