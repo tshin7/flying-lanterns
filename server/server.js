@@ -2,7 +2,8 @@
 // const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet'); // sets some http header for security
-// const mongoose = require('mongoose'); // MongoDB object modeling tool designed to work in an asynchronous environment
+// MongoDB object modeling tool designed to work in an asynchronous environment
+// const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const morgan = require('morgan'); // HTTP request logger middleware for node.js
 const cookieParser = require('cookie-parser');
