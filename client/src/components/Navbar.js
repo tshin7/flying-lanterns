@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Container,
   Menu,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 import fonts from './Fonts';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    const currentRoute = this.props.location.pathname;
+    const { location: { pathname } } = this.props;
     // currentRoute has / in front so get rid of it with slice
     // or set activeMenuItem to home if currentRoute is /
-    const activeMenuItem = currentRoute === '/' ? 'home' : currentRoute.slice(1);
-    this.state = { activeMenuItem: activeMenuItem };
+    const activeMenuItem = pathname === '/' ? 'home' : pathname.slice(1);
+    this.state = { activeMenuItem };
   }
 
   navbarButtonClicked = (event, { name }) => {
@@ -22,7 +23,7 @@ class Navbar extends Component {
   };
 
   render() {
-    const {activeMenuItem} = this.state;
+    const { activeMenuItem } = this.state;
     return (
       <Container>
         <Menu
@@ -99,7 +100,19 @@ class Navbar extends Component {
         </Menu>
       </Container>
     );
-  };
+  }
 }
+
+Navbar.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
+
+Navbar.defaultProps = {
+  location: {
+    pathname: '',
+  },
+};
 
 export default withRouter(Navbar);
