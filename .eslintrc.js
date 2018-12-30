@@ -4,6 +4,7 @@ module.exports = {
     "browser": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "rules": {
     'no-console': 'off',
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

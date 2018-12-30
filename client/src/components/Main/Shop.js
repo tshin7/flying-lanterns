@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { MainDiv } from './Main.style.js';
+import React from 'react';
+import { MainDiv } from './Main.style';
 
-export default class Products extends Component {
-  render() {
-    return (
-      <MainDiv>
-        Products
-      </MainDiv>
-    );
-  }
-}
+const Products = () => (
+  <MainDiv>
+    Products
+  </MainDiv>
+);
+
+export default Products;
