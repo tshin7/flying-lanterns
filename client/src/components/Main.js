@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './Main/Home';
@@ -12,28 +12,28 @@ const Main = () => (
     <Switch>
       <Route
         exact
-        path='/'
-        render={(props) => <Home {...props} />}
+        path="/"
+        render={props => <Home {...props} />}
       />
       <Route
         exact
-        path='/shop'
-        render={(props) => <Shop {...props} />}
+        path="/shop"
+        render={props => <Shop {...props} />}
       />
       <Route
         exact
-        path='/about'
-        render={(props) => <About {...props} />}
+        path="/about"
+        render={props => <About {...props} />}
       />
       <Route
         exact
-        path='/login'
-        render={(props) => <Login {...props} />}
+        path="/login"
+        render={props => <Login {...props} />}
       />
       <Route
         exact
-        path='/signup'
-        render={(props) => <Signup {...props} />}
+        path="/signup"
+        render={props => <Signup {...props} />}
       />
     </Switch>
   </main>
