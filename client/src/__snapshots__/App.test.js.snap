@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly in "debug" mode 1`] = `
+<div
+  className="App"
+>
+  <withRouter(Navbar) />
+  <Main />
+  <Footer />
+</div>
+`;
+
+exports[`App should render correctly with no props 1`] = `
+<div
+  className="App"
+>
+  <withRouter(Navbar) />
+  <Main />
+  <Footer />
+</div>
+`;
