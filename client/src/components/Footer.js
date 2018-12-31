@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Container
+  Container,
 } from 'semantic-ui-react';
-import {FooterSegment} from './Footer.style.js';
+import { FooterSegment } from './Footer.style';
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <FooterSegment inverted vertical>
-        <Container>
-            <p>
-              Copyright © 2018 Flying Lanterns
-            </p>
-          </Container>
-      </FooterSegment>
-    );
-  }
-}
+const Footer = () => (
+  <FooterSegment inverted vertical>
+    <Container>
+      <p>
+        Copyright © 2018 Flying Lanterns
+      </p>
+    </Container>
+  </FooterSegment>
+);
+
+export default Footer;
