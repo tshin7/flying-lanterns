@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { MainDiv } from './Main.style.js';
+import React from 'react';
+import { MainDiv } from './Main.style';
 
-export default class Home extends Component {
-  render() {
-    return (
-      <MainDiv>
-        Home
-      </MainDiv>
-    );
-  }
-}
+const Home = () => (
+  <MainDiv>
+    Home
+  </MainDiv>
+);
+
+export default Home;
