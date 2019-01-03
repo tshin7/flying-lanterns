@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly with no props 1`] = `
+<Styled(Segment)
+  inverted={true}
+  vertical={true}
+>
+  <Container>
+    <p>
+      Copyright © 2018 Flying Lanterns
+    </p>
+  </Container>
+</Styled(Segment)>
+`;
