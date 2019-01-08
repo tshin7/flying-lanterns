@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main should render correctly with no props 1`] = `
+<main>
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/shop"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/about"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/login"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/signup"
+      render={[Function]}
+    />
+  </Switch>
+</main>
+`;
